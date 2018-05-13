@@ -2,12 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchCurrencyRate} from "../actions";
-import {CurrencyView} from "../components/CurrencyView";
+import {Chat} from "../components/Chat";
+import '../components/chat.css';
 
 import PropTypes from "prop-types";
 
 @connect(mapState, mapDispatch)
-class CurrencyContainer extends React.Component {
+class ChatContainer extends React.Component {
 
     static propTypes = {
         rate: PropTypes.number,
@@ -22,7 +23,7 @@ class CurrencyContainer extends React.Component {
         return (
             <div className="main">
                 <div className="widget_block">
-                    <CurrencyView loading={loading}
+                    <Chat loading={loading}
                                   update={this.handleSelectCurrencyPair}
                                   pair={pair}
                                   error={error}
@@ -55,4 +56,4 @@ function mapDispatch(dispatch) {
 }
 
 
-export {CurrencyContainer};
+export {ChatContainer};

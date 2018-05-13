@@ -24,10 +24,15 @@ if (config.IS_PRODUCTION) {
         })
     })
 } else {
-    rules.push({
-        test: /\.styl$/,
-        loader: 'style-loader!css-loader!stylus-loader?resolve url'
-    })
+    rules.push(
+        {
+            test: /\.styl$/,
+            loader: 'style-loader!css-loader!stylus-loader?resolve url'
+        },
+        {
+            test: /\.css/,
+            loader: 'style-loader!css-loader'
+        })
 }
 
 module.exports = rules

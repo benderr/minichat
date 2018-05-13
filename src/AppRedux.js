@@ -6,11 +6,10 @@ import InternalLayout from './common/components/InternalLayout';
 import DefaultLayerLayout from './common/components/DefaultLayerLayout';
 import ModulRouter from 'modul-ui-router';
 import {configureRedux} from '../src/redux';
-import CounterModule from './modules/counter/CounterModule';
-import CurrencyModule from './modules/currency/CurrencyModule';
+import ChatModule from './modules/chat/ChatModule';
 import {Router} from 'react-router-dom';
 
-const modules = [CounterModule, CurrencyModule];
+const modules = [ChatModule];
 const {store, routes, history} = configureRedux({modules, initState: {}});
 
 
