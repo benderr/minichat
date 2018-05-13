@@ -1,0 +1,10 @@
+import React from 'react';
+
+export const SettingsBar = () => {
+    return (<div id="bottom-bar">
+        <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span>
+        </button>
+        <button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span>
+        </button>
+    </div>);
+};

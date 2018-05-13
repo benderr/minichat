@@ -1,50 +1,45 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchCurrencyRate} from "../actions";
-import {Chat} from "../components/Chat";
 import '../components/chat.css';
-
-import PropTypes from "prop-types";
+import {UserProfile} from "../components/UserProfile";
+import {SearchPlace} from "../components/SearchPlace";
+import {ContactProfile} from "../components/ContactProfile";
+import {ContactList} from "../components/ContactList";
+import {SettingsBar} from "../components/SettingsBar";
+import {DialogView} from "../components/DialogView";
+import {WriteMessageBlock} from "../components/WriteMessageBlock";
 
 @connect(mapState, mapDispatch)
 class ChatContainer extends React.Component {
 
-    static propTypes = {
-        rate: PropTypes.number,
-        error: PropTypes.string,
-        loading: PropTypes.bool,
-        pair: PropTypes.string,
-        fetchRate: PropTypes.func.isRequired,
-    };
+    static propTypes = {test: PropTypes.string};
 
     render() {
-        const {rate, error, loading, pair} = this.props;
+        //const {rate, error, loading, pair} = this.props;
         return (
-            <div className="main">
-                <div className="widget_block">
-                    <Chat loading={loading}
-                                  update={this.handleSelectCurrencyPair}
-                                  pair={pair}
-                                  error={error}
-                                  rate={rate}/>
+            <div id="frame">
+                <div id="sidepanel">
+                    <UserProfile/>
+                    <SearchPlace/>
+                    <ContactList/>
+                    <SettingsBar/>
+                </div>
+                <div class="content">
+                    <ContactProfile/>
+                    <DialogView/>
+                    <WriteMessageBlock/>
                 </div>
             </div>
         );
     }
 
-    handleSelectCurrencyPair = ({currencyPair}) => {
-        this.props.fetchRate({currencyPair});
-    }
 }
 
 function mapState(state) {
-    return {
-        rate: state.currency.rate,
-        error: state.currency.error,
-        loading: state.currency.loading,
-        pair: state.currency.pair,
-    };
+    return {};
 }
 
 function mapDispatch(dispatch) {
